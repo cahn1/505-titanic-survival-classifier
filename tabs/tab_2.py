@@ -2,11 +2,13 @@ import dash
 from dash import dcc, html
 import pandas as pd
 
-choices=['Comparison of Models',
-'Final Model Metrics',
-'ROC-AUC',
-'Confusion Matrix',
-'Regression Coefficients']
+
+choices=[
+    'Comparison of Models',
+    'Final Model Metrics',
+    'ROC-AUC',
+    'Confusion Matrix',
+    'Regression Coefficients']
 
 tab_2_layout = html.Div([
     html.H3('Model Evaluation Statistics'),
@@ -21,11 +23,7 @@ tab_2_layout = html.Div([
             ),
         ],className='two columns'),
         html.Div([
-            dcc.Graph(id='page-2-graphic')
+            dcc.Graph(id='page-2-graphic'),
         ],className='ten columns'),
     ], className='twelve columns')
-
-
-
-
 ])

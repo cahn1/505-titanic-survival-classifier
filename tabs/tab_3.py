@@ -27,5 +27,4 @@ tab_3_layout = html.Div([
             html.Table(id='survival-characteristics')
         ],className='nine columns'),
     ],className='twelve columns'),
-
 ])

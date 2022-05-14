@@ -3,9 +3,9 @@ from dash import dcc, html
 import pandas as pd
 
 filepath='resources/final_probs.csv'
-df=pd.read_csv(filepath)
-names=df['Name'].values
-index=df['Name'].index.values
+df = pd.read_csv(filepath)
+names = df['Name'].values
+index = df['Name'].index.values
 nameslist = list(zip(index, names))
 
 tab_4_layout = html.Div([
@@ -82,7 +82,4 @@ tab_4_layout = html.Div([
         html.Div(id='user-inputs-box', style={'text-align':'center','fontSize':18}),
         html.Div(id='final_prediction', style={'color':'red','text-align':'center','fontSize':18})
     ],className='twelve columns'),
-
-
-
 ])
