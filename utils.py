@@ -158,7 +158,7 @@ def display_eval_metrics(value):
         FPR=roc_dict['FPR']
         TPR=roc_dict['TPR']
         y_test=pd.Series(roc_dict['y_test'])
-        
+
         cm=pd.read_csv('resources/confusion_matrix.csv')
         trace = go.Table(
             header=dict(values=cm.columns,

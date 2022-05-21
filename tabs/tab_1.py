@@ -17,7 +17,7 @@ tab_1_layout = html.Div([
             dcc.Markdown("* Individual results of the testing dataset, for further analysis of incorrect predictions."),
             dcc.Markdown("* A feature to receive new user inputs that makes predictions based on the new data."),
             dcc.Markdown("* An interactive user interface deployed on a cloud platform and accessible to potential reviewers."),
-            html.A('View code on github', href='https://github.com/cahn1/505-titanic-survival-classifier/tree/update1'),
+            html.A('View code on github', href='https://github.com/cahn1/505-titanic-survival-classifier/tree/update0'),
             html.Hr(),
             html.Div(id='updated', children=[
                 html.P('Update'),
