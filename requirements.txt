@@ -27,3 +27,4 @@ zipp==3.8.0
 joblib
 matplotlib
 gunicorn==20.1.0
+dash_labs
