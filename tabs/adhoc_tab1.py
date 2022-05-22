@@ -7,90 +7,84 @@ from dash import dcc, html, Input, Output, callback
 layout = html.Div(className='container', children=[
     html.H6('Would you survive the Titanic?'),
     html.Div(className='text-muted lead blockquote-footer', children=[
-        html.Div('Select:', className='one column'),
-        # Title,
-        html.Div([
-            html.Div('Siblings and Spouses'),
-            dcc.Dropdown(
-                id='family_dropdown',
-                options=[{'label': i, 'value': i} for i in range(0, 9)],
-                value='2',
-            ),
-        ],className='three columns'),
-        html.Div([
-            html.Div('Age'),
-            dcc.Dropdown(
-                id='age_dropdown',
-                options=[{'label': i, 'value': i} for i in range(1, 81)],
-                value='25',
+        html.Div(className='container', children=[
+            html.Div(className='row', children=[
+                html.Div(className='col-lg-4', children=[
+                    html.Div('Select:'),
 
-            ),
-        ],className='three columns'),
-        html.Div([
-            html.Div('Cabin Class'),
-            dcc.Dropdown(
-                id='cabin_dropdown',
-                options=[{'label': i, 'value': i}
-                         for i in ['First', 'Second', 'Third']],
-                value='First',
-            ),
-        ],className='four columns'),
-        html.Div('     ', className='one column')
+                    html.Div(className='bs-component', children=[
+                        html.Div('Siblings and Spouses'),
+                        dcc.Slider(0, 8, 1, value=2, id='family_slider',),
+                    ],),
+                    html.Div(className='bs-component', children=[
+                        html.Div('Age'),
+                        dcc.Slider(0, 80, 1, value=5, marks=None,
+                                   id='age_slider',
+                                   tooltip={"placement": "bottom",
+                                            "always_visible": True},),
+                    ],),
+                    html.Div(className='bs-component', children=[
+                        html.Div('Cabin Class'),
+                        dcc.Dropdown(
+                            id='cabin_dropdown',
+                            options=[{'label': i, 'value': i}
+                                     for i in ['First', 'Second', 'Third']],
+                            value='First',),
+                    ],),
+                ]),
+                html.Div(className='col-lg-4', children=[
+                    html.Div('Select:'),
+
+                    html.Div(className='bs-component', children=[
+                        html.Div('Title'),
+                        dcc.RadioItems(
+                            id='title_radio',
+                            options=[{'label': i, 'value': i}
+                                     for i in ['Mr.', 'Miss', 'Mrs.', 'VIP']],
+                            value='None',
+                            labelStyle={'display': 'block'},
+                        ),
+                    ],),
+                    html.Div(className='bs-component', children=[
+                        html.Div('Sex'),
+                        dcc.RadioItems(
+                            id='sex_radio',
+                            options=[{'label': i, 'value': i} for i in ['Male', 'Female']],
+                            value='None',
+                            labelStyle={'display': 'block'},
+                        ),
+                    ],),
+                    html.Div(className='bs-component', children=[
+                        html.Div('Port of Embarkation'),
+                        dcc.RadioItems(
+                            id='port_radio',
+                            options=[{'label': i, 'value': i}
+                                     for i in ['Cherbourg', 'Queenstown', 'Southampton']],
+                            value='None',
+                            labelStyle={'display': 'block'},
+                        ),
+                    ],),
+                ]),
+                html.Div(className='col-lg-4 card border-dark mb-3', children=[
+                    # Output results
+                    html.Div(className='card-body', children=[
+                        html.Div(id='user-inputs-box',
+                                 style={'text-align': 'center', 'fontSize': 18}),
+                        html.Div(id='final_prediction',
+                                 style={'color': 'red', 'text-align': 'center', 'fontSize': 18})
+                    ],),
+                ])
+            ])
+        ])
     ]),
-
-    html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-
-    html.Div(className='text-muted lead blockquote-footer', children=[
-        html.Div('Select:', className='one column'),
-        html.Div([
-            html.Div('Title'),
-            dcc.RadioItems(
-                id='title_radio',
-                options=[{'label': i, 'value': i}
-                         for i in ['Mr.', 'Miss', 'Mrs.', 'VIP']],
-                value='None',
-            ),
-        ],className='three columns'),
-        html.Div([
-            html.Div('Sex'),
-            dcc.RadioItems(
-                id='sex_radio',
-                options=[{'label': i, 'value': i} for i in ['Male', 'Female']],
-                value='None',
-            ),
-        ],className='three columns'),
-        html.Div([
-            html.Div('Port of Embarkation'),
-            dcc.RadioItems(
-                id='port_radio',
-                options=[{'label': i, 'value': i}
-                         for i in ['Cherbourg', 'Queenstown', 'Southampton']],
-                value='None',
-            ),
-        ],className='five columns'),
-    ]),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-    # Output results
-    html.Div([
-        html.Div(id='user-inputs-box',
-                 style={'text-align': 'center', 'fontSize': 18}),
-        html.Div(id='final_prediction',
-                 style={'color': 'red', 'text-align': 'center', 'fontSize': 18})
-    ], className='twelve columns'),
 ])
 
 
 # callback
 @callback(
     Output('user-inputs-box', 'children'),
-    Input('family_dropdown', 'value'),
-    Input('age_dropdown', 'value'),
+    Input('family_slider', 'value'),
+    Input('age_slider', 'value'),
     Input('cabin_dropdown', 'value'),
     Input('title_radio', 'value'),
     Input('sex_radio', 'value'),
@@ -109,8 +103,8 @@ def update_user_table(family, age, cabin, title, sex, embark):
 # callback
 @callback(
     Output('final_prediction', 'children'),
-    Input('family_dropdown', 'value'),
-    Input('age_dropdown', 'value'),
+    Input('family_slider', 'value'),
+    Input('age_slider', 'value'),
     Input('cabin_dropdown', 'value'),
     Input('title_radio', 'value'),
     Input('sex_radio', 'value'),
