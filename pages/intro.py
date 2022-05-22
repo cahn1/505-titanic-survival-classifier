@@ -63,7 +63,8 @@ layout = html.Div(className='w-100 justify-content-between container-sm', childr
     ],),
     html.Ol(className='breadcrumb', children=[
         html.A("View code on Github", className='breadcrumb-item',
-               href='https://github.com/cahn1/505-titanic-survival-classifier/tree/update1'),
+               href='https://github.com/cahn1/505-titanic-survival-classifier'
+                    '/tree/update2'),
     ]),
 
 ],)
