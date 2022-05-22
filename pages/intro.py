@@ -55,10 +55,13 @@ layout = html.Div(className='w-100 justify-content-between container-sm', childr
     html.Div(className='alert alert-dismissible alert-light', children=[
         html.Div(className='list-group-numbered', children=[
             html.Li('Added DecisionTree model evaluation.'),
+            html.Li('Logistic Regression F1: 72.3, Accuracy: 76.9, '
+                    'AUC: 76-> DecisionTree F1: 74.1, Accuracy: 79, AUC: 77.9'),
             html.Li('Added ROC-AUC for DecisionTree'),
             html.Li('Added Confusion Matrix for DecisionTree'),
             html.Li('Testing Results, Adhoc inputs based on DecisionTree '
                     'Model'),
+            html.Li('Updated Navigation UI for the capstone project'),
         ],),
     ],),
     html.Ol(className='breadcrumb', children=[

@@ -39,7 +39,7 @@ navbar = dbc.NavbarSimple([
             for page in dash.page_registry.values()
             if page["module"] != "pages.404"
         ],
-        label="Pages",
+        label="Page",
         color='secondary',
         className="mb-3",
         toggle_style={
