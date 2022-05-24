@@ -24,7 +24,7 @@ layout = html.Div(className='container', children=[
         html.Div(className='text-muted lead table-secondary', children=[
             html.Div(id='text_output1', style={'fontSize': 18}),
             html.Div(id='survival-prob',
-                     style={'fontSize': 18, 'color': 'red'}),
+                     style={'fontSize': 18, 'color': '#852823'}),
             html.Table(id='survival-characteristics')
         ]),
     ],),

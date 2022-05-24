@@ -37,41 +37,48 @@ layout = html.Div(className='container', children=[
 
                     html.Div(className='bs-component', children=[
                         html.Div('Title'),
-                        dcc.RadioItems(
-                            id='title_radio',
-                            options=[{'label': i, 'value': i}
-                                     for i in ['Mr.', 'Miss', 'Mrs.', 'VIP']],
-                            value='None',
-                            labelStyle={'display': 'block'},
-                        ),
+                        html.Div(className='alert-light', children=[
+                            dcc.RadioItems(
+                                id='title_radio',
+                                options=[{'label': i, 'value': i}
+                                         for i in ['Mr.', 'Miss', 'Mrs.', 'VIP']],
+                                value='None',
+                                labelStyle={'display': 'block'},
+                            )
+                        ])
                     ],),
                     html.Div(className='bs-component', children=[
                         html.Div('Sex'),
-                        dcc.RadioItems(
-                            id='sex_radio',
-                            options=[{'label': i, 'value': i} for i in ['Male', 'Female']],
-                            value='None',
-                            labelStyle={'display': 'block'},
-                        ),
+                        html.Div(className='alert-light', children=[
+                            dcc.RadioItems(
+                                id='sex_radio',
+                                options=[{'label': i, 'value': i} for i in ['Male', 'Female']],
+                                value='None',
+                                labelStyle={'display': 'block'},
+                            ),
+                        ])
                     ],),
                     html.Div(className='bs-component', children=[
                         html.Div('Port of Embarkation'),
-                        dcc.RadioItems(
-                            id='port_radio',
-                            options=[{'label': i, 'value': i}
-                                     for i in ['Cherbourg', 'Queenstown', 'Southampton']],
-                            value='None',
-                            labelStyle={'display': 'block'},
-                        ),
+                        html.Div(className='alert-light', children=[
+                            dcc.RadioItems(
+                                id='port_radio',
+                                options=[{'label': i, 'value': i}
+                                         for i in ['Cherbourg', 'Queenstown', 'Southampton']],
+                                value='None',
+                                labelStyle={'display': 'block'},
+                            ),
+                        ])
                     ],),
                 ]),
-                html.Div(className='col-lg-4 card border-dark mb-3', children=[
+                html.Div(className='col-lg-4 card mb-3', children=[
                     # Output results
                     html.Div(className='card-body', children=[
                         html.Div(id='user-inputs-box',
                                  style={'text-align': 'center', 'fontSize': 18}),
                         html.Div(id='final_prediction',
-                                 style={'color': 'red', 'text-align': 'center', 'fontSize': 18})
+                                 style={'color': '#852823', 'text-align':
+                                     'center', 'fontSize': 18})
                     ],),
                 ])
             ])
